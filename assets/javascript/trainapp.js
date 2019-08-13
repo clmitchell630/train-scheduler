@@ -28,34 +28,52 @@ $(function () {
     $("#submit").on("click", dataPush);
 
     //database listener
-    database.ref().on("child_added", function(snapshot){
+    database.ref().on("child_added", function (snapshot) {
         var name = snapshot.val().name;
         var city = snapshot.val().city;
         var time = snapshot.val().time;
-        var freq = snapshot.val().frequency;
-    }
+        var freq = parseInt(snapshot.val().frequency);
+
+        //time maths
+        var tFormated = moment(time, "HH:mm").subtract(1, "years");
+        var tDiff = moment().diff(moment(tFormated), "minutes");
+        var tRemain = tDiff % freq;
+        var tMinusTrains = freq - tRemain;
+        var nextTrain = moment().add(tMinusTrains, "minutes");
+
+
+        var newTr = $("<tr>").append(
+            $("<td>").text(name),
+            $("<td>").text(city),
+            $("<td>").text(freq),
+            $("<td>").text(moment(nextTrain).format("hh:mm")),
+            $("<td>").text(tMinusTrains + " minutes"),
+        );
+
+        $("#trainTable > tbody").append(newTr);
+    });
     //------functions------
 
     //database push
-    function dataPush(e){
-        e.preventDefault();
+    function dataPush(e) {
+            e.preventDefault();
 
-        var name = $("#name").val().trim();
-        var city = $("#city").val().trim();
-        var time = moment($("#time").val().trim(), "hh:mm").format("hh:mm");
-        var freq = $("#freq").val().trim();
+            var name = $("#name").val().trim();
+            var city = $("#city").val().trim();
+            var time = moment($("#time").val().trim(), "hh:mm").format("HH:mm");
+            var freq = $("#freq").val().trim();
 
-        database.ref().push({
-            name: name,
-            city: city,
-            time: time,
-            frequency: freq
-        });
+            database.ref().push({
+                name: name,
+                city: city,
+                time: time,
+                frequency: freq
+            });
 
-        $("#name").val("");
-        $("#city").val("");
-        $("#time").val("");
-        $("#freq").val("");
+            $("#name").val("");
+            $("#city").val("");
+            $("#time").val("");
+            $("#freq").val("");
 
-    }
+        }
 });
