@@ -6,9 +6,9 @@
 //magic part 3 = page will dynamically update with information from database
 
 //set up time math and Moment.js
-
+var COUNTDOWNTIME = 60;
 $(function () {
-
+    // timerStart();
     // firebase setup
     const firebaseConfig = {
         apiKey: "AIzaSyDI5gmTb2_YLj95bvO27wvumaa_-AiWHYk",
@@ -24,11 +24,21 @@ $(function () {
     //------variables-------
     var database = firebase.database();
 
+    var countdown = COUNTDOWNTIME;
+    var intervalId;
     //form submit button
     $("#submit").on("click", dataPush);
 
+    //timer on click
+    // $("#timerStop").on("click", function(){
+        // clearInterval(intervalId);
+    // })
+
+    // $("#timerResume").on("click", timerStart);
+
     //database listener
     database.ref().on("child_added", function (snapshot) {
+        
         var name = snapshot.val().name;
         var city = snapshot.val().city;
         var time = snapshot.val().time;
@@ -51,29 +61,52 @@ $(function () {
         );
 
         $("#trainTable > tbody").append(newTr);
+
+        
     });
     //------functions------
 
     //database push
     function dataPush(e) {
-            e.preventDefault();
+        e.preventDefault();
 
-            var name = $("#name").val().trim();
-            var city = $("#city").val().trim();
-            var time = moment($("#time").val().trim(), "hh:mm").format("HH:mm");
-            var freq = $("#freq").val().trim();
+        var name = $("#name").val().trim();
+        var city = $("#city").val().trim();
+        var time = moment($("#time").val().trim(), "hh:mm").format("HH:mm");
+        var freq = $("#freq").val().trim();
 
-            database.ref().push({
-                name: name,
-                city: city,
-                time: time,
-                frequency: freq
-            });
+        database.ref().push({
+            name: name,
+            city: city,
+            time: time,
+            frequency: freq
+        });
 
-            $("#name").val("");
-            $("#city").val("");
-            $("#time").val("");
-            $("#freq").val("");
+        $("#name").val("");
+        $("#city").val("");
+        $("#time").val("");
+        $("#freq").val("");
 
+    }
+
+    //page timer
+    /*
+    function timerStart() {
+        clearInterval(intervalId);
+        intervalId = setInterval(timer, 1000);
+    }
+
+    function timer() {
+
+        countdown--;
+        $("#countTimer").text("This page will auto-refresh in: " + countdown + " seconds");
+        if (countdown === 0) {
+
+            clearInterval(intervalId);
+            location.reload();
+            timerStart();
         }
+        
+    }
+    */
 });

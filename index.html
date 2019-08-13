@@ -6,6 +6,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+    <link rel="shortcut icon" type="image/png" href="./assets/images/train-icon.png">
+
     <title>Train Schedule</title>
 
     <!--CSS links-->
@@ -25,12 +27,22 @@
 
             <div class="jumbotron jumbotron-fluid" style="background-color: #328ba8;">
                 <div class="container">
-                    <h1 class="display-4">Where's My Train?</h1>
+                    <h1 class="display-4">Where's My Train? <span><img src="assets/images/train-icon.png" alt="thomas the tank engine"
+                        style="height: 40px; text-align: right"></span></h1>
                     <p class="lead">Train Schedule.</p>
                 </div>
             </div>
+            <div class="row menuHead">
+                <div class="col-md-6">
+                    <div style="margin-left: 0;">Current Train Schedule</div>
+                    <!-- <div id="countTimer" style="margin-left: 0; font-size: 10px; height: 20px;"></div> 
+                    <div class="btn-group btn-group-sm" role="group" aria-label="Basic example" style="margin-left: 0;">
+                        <button type="button" class="btn btn-dark" id="timerStop">Stop</button>
+                        <button type="button" class="btn btn-dark" id="timerResume">Resume</button>
+                    </div>-->
+                </div>
+            </div>
 
-            <h4 class="menuHead">Current Train Schedule</h4>
             <table class="table" id="trainTable">
                 <thead class="thead-dark">
                     <tr>
@@ -45,10 +57,13 @@
                 <tbody>
 
                 </tbody>
-                
-            </table>
 
-            <h4 class="menuHead">Add Trains</h4>
+            </table>
+            
+            <div class="row menuHead">
+                <div class="col-md-6">Add Trains</div>
+            </div>
+
             <form>
                 <div class="form-group">
                     <label for="formGroupExampleInput">Train Name</label>
@@ -66,7 +81,7 @@
                     <label for="formGroupExampleInput">Frequency (min)</label>
                     <input type="text" class="form-control" id="freq">
                 </div>
-                <button type="submit" class="btn btn-dark btn-block" id="submit">Submit</button>
+                <button type="submit" class="btn btn-danger btn-block" id="submit">Submit</button>
             </form>
 
 
