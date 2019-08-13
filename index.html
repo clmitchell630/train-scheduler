@@ -19,12 +19,86 @@
 
 <body>
 
+
+    <div class="col-md-6">
+        <div class="container">
+
+            <div class="jumbotron jumbotron-fluid" style="background-color: #328ba8;">
+                <div class="container">
+                    <h1 class="display-4">Where's My Train?</h1>
+                    <p class="lead">Train Schedule.</p>
+                </div>
+            </div>
+
+            <h4>Current Train Schedule</h4>
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Train Name</th>
+                        <th scope="col">Destination</th>
+                        <th scope="col">Frequency(min)</th>
+                        <th scope="col">Next Arrival</th>
+                        <th scope="col">Minutes Away</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>@mdo</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2</th>
+                        <td>Jacob</td>
+                        <td>Thornton</td>
+                        <td>@fat</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">3</th>
+                        <td>Larry</td>
+                        <td>the Bird</td>
+                        <td>@twitter</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h4>Add Trains</h4>
+            <form>
+                <div class="form-group">
+                    <label for="formGroupExampleInput">Train Name</label>
+                    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="'Polar Express'">
+                </div>
+                <div class="form-group">
+                    <label for="inputCity">Destination</label>
+                    <input type="text" class="form-control" id="inputCity">
+                </div>
+                <div class="form-group">
+                    <label for="formGroupExampleInput">First Train Time (HH:MM - 24h format)</label>
+                    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="'21:20'">
+                </div>
+                <div class="form-group">
+                    <label for="formGroupExampleInput">Frequency (min)</label>
+                    <input type="text" class="form-control" id="formGroupExampleInput">
+                </div>
+                <button type="submit" class="btn btn-dark btn-block">Submit</button>
+            </form>
+
+
+        </div>
+
+    </div>
+
+    <footer></footer>
     
+    <!-- firebase CDN -->
+    <script src="https://www.gstatic.com/firebasejs/6.3.5/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.3.5/firebase-database.js"></script>
     <!--jQuery link-->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <!--JS link-->
     <script type="text/javascript" src="./assets/javascript/trainapp.js"></script>
-    
+
 </body>
 
 </html>

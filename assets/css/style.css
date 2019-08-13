@@ -1,0 +1,41 @@
+html, body {
+    height: 100%;
+}
+
+body {
+    background-image: url(../images/thomasbg.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-color: #7fb8db;
+}
+
+h4 {
+    padding: 5px;
+    margin: 0;
+    background-color: #328ba8;
+    color: #ffffff;
+    font-size: 16px;
+}
+
+table, form {
+    background-color: #e9ecef;
+}
+
+form {
+    padding: 10px;
+}
+
+div label {
+    width: 100%;
+    padding: 5px;
+    background-color: #343a40;
+    border-color: #454d55;
+    color: #ffffff;
+    font-weight: bolder;
+}
+
+footer {
+    height: 100px;
+}
