@@ -2,7 +2,7 @@ html, body {
     height: 100%;
 }
 
-body {
+.bg {
     background-image: url("../images/thomasbg.png");
     background-position: center center;
     background-repeat: no-repeat;
@@ -11,7 +11,7 @@ body {
     background-color: #7fb8db;
 }
 
-h4 {
+.menuHead {
     padding: 5px;
     margin: 0;
     background-color: #328ba8;
