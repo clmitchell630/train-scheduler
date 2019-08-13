@@ -3,7 +3,7 @@ html, body {
 }
 
 body {
-    background-image: url(../images/thomasbg.png);
+    background-image: url("../images/thomasbg.png");
     background-position: center center;
     background-repeat: no-repeat;
     background-attachment: fixed;
